@@ -1,0 +1,122 @@
+<testExecutions version="1">
+  <file path="src/app/coleccionista/coleccionista.service.spec.ts">
+    <testCase name="Service: Coleccionista addArtistaFavorito() test unitario para validar servicio que permite adicionar artista favorito a un coleccionista." duration="31"/>
+    <testCase name="Service: Coleccionista getAlbums() debe retornar 5 registros" duration="9"/>
+    <testCase name="Service: Coleccionista getDetalleColeccionista() debe retornar el detalle de un coleccionista" duration="7"/>
+    <testCase name="Service: Coleccionista addAlbum() test unitario para validar servicio para adicionar un álbum a un coleccionista." duration="5"/>
+    <testCase name="Service: Coleccionista getColeccionistas() debe retornar 10 registros" duration="8"/>
+  </file>
+  <file path="src/app/premio/filtro-premio.pipe.spec.ts">
+    <testCase name="Pipe: FiltroPremioe Validar metodo de filtrado" duration="1"/>
+    <testCase name="Pipe: FiltroPremioe create an instance" duration="1"/>
+    <testCase name="Pipe: FiltroPremioe Verificar el retorno vacio, cuando no encuentra un elemento" duration="1"/>
+  </file>
+  <file path="src/app/coleccionista/filtrar-coleccionistas.pipe.spec.ts">
+    <testCase name="Pipe: FiltroColeccionistasPipe create an instance" duration="1"/>
+    <testCase name="Pipe: FiltroColeccionistasPipe Verificar el retorno vacio, cuando no encuentra un elemento" duration="1"/>
+    <testCase name="Pipe: FiltroColeccionistasPipe Validar metodo de filtrado" duration="1"/>
+  </file>
+  <file path="src/app/coleccionista/coleccionista-detail/coleccionista-detail.component.spec.ts">
+    <testCase name="ColeccionistaDetailComponent Debe crear" duration="169"/>
+    <testCase name="ColeccionistaDetailComponent Debe tener un elemento h5." duration="41"/>
+  </file>
+  <file path="src/app/coleccionista/coleccionista-agregar-album/coleccionista-agregar-album.component.spec.ts">
+    <testCase name="ColeccionistaAgregarAlbumComponent Debe crearse" duration="62"/>
+    <testCase name="ColeccionistaAgregarAlbumComponent Debe tener una lista desplegable con álbumes" duration="23"/>
+  </file>
+  <file path="src/app/coleccionista/coleccionista-listar/coleccionista-listar.component.spec.ts">
+    <testCase name="ColeccionistaListarComponent should go home" duration="49"/>
+    <testCase name="ColeccionistaListarComponent Debe crear." duration="14"/>
+    <testCase name="ColeccionistaListarComponent should call list artist" duration="33"/>
+    <testCase name="ColeccionistaListarComponent Debe tener un elemento h2." duration="21"/>
+  </file>
+  <file path="src/app/album/album-detalle/album-detalle.component.spec.ts">
+    <testCase name="AlbumDetalleComponent should add comentario" duration="81"/>
+    <testCase name="AlbumDetalleComponent should call getDetail Album" duration="50"/>
+    <testCase name="AlbumDetalleComponent Should have an h2 element " duration="38"/>
+    <testCase name="AlbumDetalleComponent should create" duration="30"/>
+  </file>
+  <file path="src/app/artista/pipes/filtro-busqueda.pipe.spec.ts">
+    <testCase name="filtroBusqueda Validar metodo de filtrado" duration="2"/>
+    <testCase name="filtroBusqueda Validar metodo de filtrado" duration="1"/>
+    <testCase name="filtroBusqueda Verificar el retorno vacio, cuando no encuentra un elemento" duration="1"/>
+    <testCase name="filtroBusqueda create an instance" duration="1"/>
+  </file>
+  <file path="src/app/premio/premio.service.spec.ts">
+    <testCase name="Service: Premio getPrizes() debe retornar 10 premios" duration="8"/>
+    <testCase name="Service: Premio create() test unitario para validar servicio que permite crear un premio." duration="5"/>
+  </file>
+  <file path="src/app/artista/artista.service.spec.ts">
+    <testCase name="ArtistaService getArtistas() retorna 10 registros de artistas" duration="9"/>
+    <testCase name="ArtistaService getPremioArtista() retorna el detalle de un premio, dado a un artista" duration="5"/>
+    <testCase name="ArtistaService getDetailArtista() retorna el detalle de un artista" duration="4"/>
+  </file>
+  <file path="src/app/premio/premio-listar/premio-listar.component.spec.ts">
+    <testCase name="PremioListarComponent Debe crear" duration="32"/>
+    <testCase name="PremioListarComponent Debe tener un elemento h2." duration="17"/>
+    <testCase name="PremioListarComponent should call list artist" duration="23"/>
+  </file>
+  <file path="src/app/album/album.service.spec.ts">
+    <testCase name="AlbumService getPost() should return 1 records" duration="4"/>
+    <testCase name="AlbumService Test create track" duration="4"/>
+    <testCase name="AlbumService Test create Album" duration="4"/>
+    <testCase name="AlbumService Test Add Prize" duration="5"/>
+    <testCase name="AlbumService getPost() should return 1 records" duration="5"/>
+  </file>
+  <file path="src/app/artista/pipes/sin-foto-artista.pipe.spec.ts">
+    <testCase name="SinFotoArtistaPipe providing no value returns fallback" duration="1"/>
+    <testCase name="SinFotoArtistaPipe create an instance" duration="1"/>
+    <testCase name="SinFotoArtistaPipe providing no value returns null" duration="1"/>
+    <testCase name="SinFotoArtistaPipe providing no value returns null" duration="1"/>
+  </file>
+  <file path="src/app/artista/pipes/filtro-busqueda.pipe.spec.ts">
+    <testCase name="filtroBusqueda Validar metodo de filtrado" duration="3"/>
+    <testCase name="filtroBusqueda Validar metodo de filtrado" duration="1"/>
+    <testCase name="filtroBusqueda Verificar el retorno vacio, cuando no encuentra un elemento" duration="2"/>
+    <testCase name="filtroBusqueda create an instance" duration="1"/>
+  </file>
+  <file path="src/app/album/album-listar/album-listar.component.spec.ts">
+    <testCase name="AlbumListarComponent should create" duration="72"/>
+    <testCase name="AlbumListarComponent should go home" duration="50"/>
+    <testCase name="AlbumListarComponent should create" duration="43"/>
+    <testCase name="AlbumListarComponent Should have an h4 element " duration="35"/>
+    <testCase name="AlbumListarComponent should add album" duration="25"/>
+  </file>
+  <file path="src/app/artista/artista-listar/artista-listar.component.spec.ts">
+    <testCase name="ArtistaListarComponent should annadir artist" duration="55"/>
+    <testCase name="ArtistaListarComponent should go home" duration="29"/>
+    <testCase name="ArtistaListarComponent should call list artist" duration="31"/>
+    <testCase name="ArtistaListarComponent should create" duration="16"/>
+    <testCase name="ArtistaListarComponent Should have an h2 element " duration="23"/>
+  </file>
+  <file path="src/app/premio/premio-crear/premio-crear.component.spec.ts">
+    <testCase name="PremioCrearComponent Debe crearse" duration="46"/>
+    <testCase name="PremioCrearComponent Debe tener un elemento h4." duration="33"/>
+  </file>
+  <file path="src/app/album/album.service.spec.ts">
+    <testCase name="Service: Album getPost() should return 1 records" duration="11"/>
+  </file>
+  <file path="src/app/album/track-listar/track-listar.component.spec.ts">
+    <testCase name="TrackListarComponent should add track" duration="65"/>
+    <testCase name="TrackListarComponent should test the table " duration="26"/>
+    <testCase name="TrackListarComponent should call list artist" duration="28"/>
+    <testCase name="TrackListarComponent should create" duration="25"/>
+    <testCase name="TrackListarComponent Should have an td element " duration="22"/>
+  </file>
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should create the app" duration="37"/>
+    <testCase name="AppComponent should have as title 'front'" duration="14"/>
+    <testCase name="AppComponent should have as title 'front'" duration="12"/>
+  </file>
+  <file path="src/app/artista/artista-detail/artista-detail.component.spec.ts">
+    <testCase name="ArtistaDetailComponent Should have an h2 element " duration="50"/>
+    <testCase name="ArtistaDetailComponent Should return SomeModel[]" duration="10"/>
+    <testCase name="ArtistaDetailComponent should create" duration="13"/>
+  </file>
+  <file path="src/app/album/pipes/sin-foto-album.pipe.spec.ts">
+    <testCase name="SinFotoAlbumPipe create an instance" duration="1"/>
+    <testCase name="SinFotoAlbumPipe providing no value returns null" duration="1"/>
+    <testCase name="SinFotoAlbumPipe providing no value returns fallback" duration="1"/>
+    <testCase name="SinFotoAlbumPipe providing no value returns null" duration="1"/>
+  </file>
+</testExecutions>

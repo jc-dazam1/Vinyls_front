@@ -1,0 +1,382 @@
+ .btn-producto {
+     padding: 0px !important;
+     background: #ffffff;
+     border: 1px solid #e0e0e0;
+     border-radius: 5px;
+     cursor: pointer;
+     margin: 0px 3px 3px 0px;
+ }
+ 
+ .btn-producto-test :active {
+     background: #fafafa;
+     box-shadow: 0 1px 0 #ddd;
+     padding: 2px;
+ }
+ 
+ .tab-content {
+     background: #efeff4;
+ }
+ 
+ .component-pos {
+     padding: 0 5px;
+ }
+ 
+ .component-item-venta {
+     padding: 5px;
+ }
+ 
+ .btn-categorias {
+     margin-bottom: 5px;
+     font-size: 0.8rem;
+ }
+ /*body::-webkit-scrollbar {
+     width: 1.75em;
+ }
+ 
+ body::-webkit-scrollbar-track {
+     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+ }
+ 
+ body::-webkit-scrollbar-thumb {
+     background-color: darkgrey;
+     outline: 1px solid slategrey;
+ }*/
+ 
+ .categorias {
+     position: fixed;
+     width: 220px;
+     top: 0;
+     bottom: 0;
+     left: 0;
+     z-index: 1000;
+     display: block;
+     overflow-x: hidden;
+     overflow-y: auto;
+     background-color: #f5f5f5;
+     box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+ }
+ 
+ @media (min-width: 768px) {
+     .main-productos {
+         padding-left: 260px;
+         padding-bottom: 50px;
+         /* 180 + 40 */
+     }
+ }
+ 
+ .venta {
+     background: #e9edf2;
+     padding: 5px;
+     height: 100vh;
+     flex-direction: column;
+     position: fixed;
+     right: 0;
+     display: flex;
+ }
+ 
+ .small,
+ small {
+     font-size: 75% !important;
+ }
+ 
+ .inventario th {
+     background: $light;
+     position: sticky;
+     top: 0;
+     z-index: 1000;
+ }
+ 
+ .inventario td {
+     padding: 0.40rem !important;
+ }
+ 
+ .campo_inventario {
+     width: 5.0rem;
+ }
+ 
+ .campo_recarga {
+     width: 10.0rem;
+ }
+ 
+ #searchclear {
+     position: absolute;
+     right: 10px;
+     top: 0;
+     bottom: 0;
+     height: 14px;
+     margin: auto;
+     font-size: 14px;
+     cursor: pointer;
+     color: #ccc;
+     z-index: 10;
+ }
+ 
+ .resultado_busqueda {
+     position: absolute;
+     z-index: 1000;
+     width: 100%;
+     display: flex;
+ }
+ 
+ .box-title {
+     margin-bottom: 0;
+ }
+ 
+ .perfilImage {
+     width: 75px;
+     height: 100px;
+ }
+ 
+ .resultado_busqueda_cliente {
+     display: flex;
+ }
+ 
+ .resultado_busqueda_cliente:hover {
+     cursor: pointer;
+ }
+ 
+ .search-result {
+     z-index: 2000 !important;
+     overflow: auto;
+     position: relative;
+ }
+ 
+ .swal-text {
+     text-align: center;
+ }
+ /** Error */
+ 
+ h1.error {
+     font-size: 180px;
+     line-height: 180px;
+ }
+ 
+ .ngx-datepicker-container {
+     z-index: 12;
+ }
+ 
+ .botones-centrados {
+     display: flex;
+     justify-content: center;
+     padding: 0 15px;
+ }
+ 
+ .seleccion-fechas {
+     display: flex;
+     justify-content: space-around;
+     flex-flow: row wrap;
+ }
+ 
+ .fechas {
+     display: flex;
+     align-items: baseline;
+     padding: 5px;
+ }
+ 
+ .footer-version {
+     bottom: 0;
+ }
+ 
+ .consultaCliente {
+     border: 1px solid #eee;
+     border-radius: 10px;
+ }
+ 
+ .consultaClienteCuerpo {
+     padding: 40px;
+     background: #f9f9f9;
+ }
+ 
+ .consultaClienteCuerpo div {
+     background: #ffffff;
+     border-radius: 5px;
+     border: 1px solid #eee;
+     padding: 15px 10px !important;
+ }
+ 
+ .social-widget .soc-header {
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+ }
+ /* Table */
+ 
+ .table td,
+ .table th {
+     padding: 0.4rem;
+ }
+ 
+ .form-control {
+     padding: 5px !important;
+ }
+ 
+ .thead-DragonMarket {
+     background: #f9f9f9;
+     line-height: 15px;
+ }
+ 
+ .table {
+     margin-bottom: 0rem !important;
+ }
+ 
+ .cliente {
+     padding: 5px 0;
+ }
+ 
+ .redistribucion-saldo {
+     width: 60% !important;
+ }
+ 
+ input[type=number]::-webkit-inner-spin-button,
+ input[type=number]::-webkit-outer-spin-button {
+     -webkit-appearance: none;
+     margin: 0;
+ }
+ 
+ .uploader {
+     background-color: #ea6112;
+     color: white;
+     width: 100%;
+     height: 160px;
+     padding-top: 40px;
+     text-align: center;
+ }
+ 
+ .footer-Inventario {
+     background-color: #f0f0f0;
+     border-top: 1px solid #d8d8d8;
+     bottom: 0;
+     color: white;
+     left: 0;
+     padding: 5px;
+     position: fixed;
+     text-align: center;
+     width: 100%;
+ }
+ /*  Modulo de Venta por FlexBox */
+ 
+ .body-pos {
+     display: flex;
+     flex-direction: column;
+     height: 100vh;
+ }
+ 
+ .footer-pos {
+     bottom: 0;
+     color: white;
+     left: 0;
+     position: fixed;
+     text-align: center;
+     width: 100%;
+ }
+ 
+ @media screen and (max-width:768px) {
+     .contenedor-principal {
+         display: flex;
+         flex-flow: column nowrap;
+         /*justify-content: space-between;*/
+         /*align-content: stretch;*/
+         height: 100vh;
+     }
+     #myname{display:none}
+ }
+ 
+ @media screen and (min-width:768px) {
+     .contenedor-principal {
+         display: flex;
+         flex-flow: row nowrap;
+         /*justify-content: space-between;*/
+         /*align-content: stretch;*/
+         height: 95vh;
+     }
+     .sidebar-categoria {
+         order: 1;
+         padding: 0;
+         flex: 0 1 15%;
+         overflow: auto;
+     }
+     .contenido-principal {
+         order: 2;
+         flex: 1 1 45%;
+         overflow: auto;
+         padding-right: 10px;
+     }
+     .sidebar-venta {
+         order: 3;
+         display: flex;
+         flex-direction: column;
+         flex: 0 1 40%;
+         height: 100vh;
+     }
+     /** Fin **/
+     /** Resumen de Venta ***/
+     .datos-cliente {
+         flex: 0 1 30%;
+     }
+     .resumen-venta {
+         flex: 1 0 70%;
+         display: flex;
+         flex-flow: column nowrap;
+         height: 75vh;
+     }
+     .resumen-body {
+         flex: 0 1 65%;
+         overflow: auto;
+     }
+     .resumen-footer {
+         flex: 0 1 35%;
+         padding: 0 5px !important;
+     }
+ }
+ 
+ .resumen-item-venta {
+     display: flex;
+     justify-content: space-between;
+ }
+ 
+ .resumen-item-venta .item {
+     flex: 1 1 50%;
+ }
+ 
+ .resumen-item-venta .precio {
+     flex: 0 1 20%;
+ }
+ 
+ .resumen-item-venta .acciones {
+     flex: 0 1 30%;
+ }
+ /* Productos */
+ 
+ .card-principal {
+     display: flex;
+ }
+ 
+ .card-producto-titulo {
+     flex: 1 1 60%;
+     font-size: 80% !important;
+     line-height: 1.0;
+     .precio {
+         font-size: 90% !important;
+         line-height: 1.5;
+     }
+ }
+ 
+ .card-producto-cantidad {
+     flex: 0 1 0%;
+ }
+ 
+ .titulo-resumen-venta {
+     background: #fafafa;
+     border-bottom: 1px solid #eee;
+     padding: 2px 0 !important;
+     font-weight: 700;
+     text-align: center !important;
+ }
+ 
+ .transferencias {
+     height: 450px;
+     overflow-y: auto;
+ }
+ 
+ .nombre-cliente {
+     align-self: center;
+ }

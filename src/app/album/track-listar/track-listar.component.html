@@ -1,0 +1,78 @@
+<table class="table table-striped" id="tracks">
+  <caption i18n>List Tracks</caption>
+  <thead class="=thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col" i18n>Name</th>
+      <th scope="col" i18n>Duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="tracks?.length == 0">
+      <td colspan="3" i18n>this album not tracks</td>
+    </tr>
+    <tr *ngFor="let track of tracks">
+      <td>{{track.id}}</td>
+      <td>{{track.name}}</td>
+      <td>{{track.duration}}</td>
+    </tr>
+  </tbody>
+</table>
+<div class="col-sm-12 col-md-6 artista-list__item" style="position: absolute;margin: -3.3% 75%;">
+    <button type="button" class="btn btn-primary" (click)="newAlbumModal()" i18n>Add Track</button>
+</div>
+
+<!--Formulario Crear Album Modal-->
+
+<div class="modal" id="newTrackModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel" i18n>Create Track</h4>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="createTrackForm" (ngSubmit)="createTrack(createTrackForm.value)">
+
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="name" i18n>
+              Name
+            </label>
+            <input type="text" id="name" class="form-control" formControlName="name" placeholder="Type here.." i18n-placeholder="From placeholder">
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show" *ngIf="createTrackForm.get('name').hasError('required') &&
+          createTrackForm.get('name').touched" i18n>
+            Name required
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show"
+            *ngIf="createTrackForm.get('name').hasError('maxlength') && createTrackForm.get('name').touched" i18n>
+            Name too large
+          </div>
+
+
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="cover" i18n>
+              Duration
+            </label>
+            <input type="text" id="duration" class="form-control" formControlName="duration" placeholder="Type here.." i18n-placeholder="From placeholder">
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show" *ngIf="createTrackForm.get('duration').hasError('required') &&
+        createTrackForm.get('duration').touched" i18n>
+            Duration required
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show"
+            *ngIf="createTrackForm.get('duration').hasError('maxlength') && createTrackForm.get('duration').touched" i18n>
+            Duration too short
+          </div>
+
+
+          <div class="row form-inline justify-content-center align-self-center">
+            <button type="button" class="btn btn-danger" (click)="cancelCreateTrack()" i18n>Cancel</button>
+              <div class="divider"></div>
+              <button type="submit" class="btn btn-primary" [disabled]="createTrackForm.invalid" i18n>Create</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

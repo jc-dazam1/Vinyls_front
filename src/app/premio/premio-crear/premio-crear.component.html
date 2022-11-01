@@ -1,0 +1,55 @@
+<div class="modal-header">
+  <h4 class="modal-title" i18n>Create Prize</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="prizeForm" (ngSubmit)="passBack()">
+    <div class="form-group row">
+      <label for="id" class="col-sm-3 col-form-label" i18n>
+        Name
+      </label>
+      <div class="col-sm-9">
+        <input [(ngModel)]="prize.name" id="name" type="text" class="form-control" formControlName="name"
+          placeholder="The prize name">
+        <div class="alert alert-danger alert-dismissible fade show"
+          *ngIf="prizeForm.get('name').hasError('required') && prizeForm.get('name').touched">
+          <span i18n>Prize name is required</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="price" class="col-sm-3 col-form-label" i18n>
+        Organization
+      </label>
+      <div class="col-sm-9">
+        <input [(ngModel)]="prize.organization" id="organization" type="text" class="form-control"
+          formControlName="organization" placeholder="The organization name">
+        <div class="alert alert-danger alert-dismissible fade show"
+          *ngIf="prizeForm.get('organization').hasError('required') && prizeForm.get('organization').touched">
+          <span i18n>Organization name is required</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="status" class="col-sm-3 col-form-label" i18n>
+        Description
+      </label>
+      <div class="col-sm-9">
+        <textarea [(ngModel)]="prize.description" id="description" class="form-control" formControlName="description"
+          placeholder="The prize description"></textarea>
+        <div class="alert alert-danger alert-dismissible fade show"
+          *ngIf="prizeForm.get('description').hasError('required') && prizeForm.get('description').touched">
+          <span i18n>Prize description is required</span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button id="create-prize-btn" class="btn btn-primary" type="submit" [disabled]="prizeForm.invalid"
+        i18n>Add</button>
+      <div class="divider"></div>
+      <button type="button" class="btn btn-outline-dark" (click)="activeModal.dismiss()" i18n>Close</button>
+    </div>
+  </form>
+</div>

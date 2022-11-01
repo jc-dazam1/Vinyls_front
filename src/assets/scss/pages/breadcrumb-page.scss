@@ -1,0 +1,49 @@
+/*
+Template Name: Admin pro Admin
+Author: Wrappixel
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+
+@import '../variable';
+
+/*============================================================== 
+Breadcrumb
+ ============================================================== */
+
+.bc-colored {
+    .breadcrumb-item,
+    .breadcrumb-item a {
+        color: $white;
+        &.active {
+            opacity: 1;
+        }
+    }
+    .breadcrumb-item.active,
+    .breadcrumb-item+.breadcrumb-item::before {
+        color: rgb(255, 255, 255) !important;
+    }
+}
+
+.breadcrumb-header {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: left;
+}
+
+.breadcrumb {
+    padding: 0;
+    background-color: transparent !important;
+    margin-bottom: 0;
+    padding: 0 1.5rem;
+    .breadcrumb-item a {
+        color: $white;
+        &.active {
+            opacity: 1;
+        }
+    }
+    .breadcrumb-item.active,
+    .breadcrumb-item+.breadcrumb-item::before {
+        color: rgb(255, 255, 255) !important;
+    }
+}

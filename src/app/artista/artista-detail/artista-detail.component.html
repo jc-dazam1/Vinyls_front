@@ -1,0 +1,79 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a style="color: black;" routerLink="/artistas/list" i18n>Artists</a></li>
+  <li class="breadcrumb-item">{{detalleArtista?.name}}</li>
+</ol>
+<div class="container-fluid">
+  <div class="card mb-3" style="padding: 22px;">
+    <div class="row no-gutters">
+      <div class="col2">
+        <img src={{detalleArtista?.image}} style="height:150px;max-width:120px;"
+          onError="this.src='assets/imagenes/sinFotoArtista.png'" class="card-img" alt="Imágen Artista">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body" style="text-align: inherit;">
+          <h1 id="nombreArtista">{{detalleArtista?.name}}</h1>
+          <p class="card-text">{{detalleArtista?.description}}</p>
+          <tr>
+            <td class="flagTitulo1" i18n>
+              Birthday Date:
+            </td>
+            <td>
+              <label class="card-text"> &nbsp; {{detalleArtista?.birthDate | date: 'dd-MM-yyyy'}}</label>
+            </td>
+          </tr>
+        </div>
+      </div>
+    </div>
+    <br>
+    <h2 id="titleAlbums" class="font-weight-bold" i18n>Albums</h2>
+    <div class="jumbotron border border-dark" style="background-color: white; display: flex; padding: 12px;">
+      <div *ngIf="detalleArtista?.albums?.length == 0">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <label i18n>The artist / band does not own any albums.</label>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-2 artista-list__item" *ngFor="let album of detalleArtista?.albums">
+        <div class="card mb-4 shadow-sm pd-5" style="width: 140px" routerLink="/albums/{{album.id}}">
+          <div class="card-img-top">
+            <a>
+              <img width="138px" height="138px" class="card-img-top" [src]="album.cover | sinFotoArtista"
+                alt="Álbum Artista">
+            </a>
+          </div>
+          <figcaption class="card-body">
+            <h3>{{album.name}}</h3>
+            <h3>{{album.releaseDate | date: 'yyyy' }}</h3>
+          </figcaption>
+
+        </div>
+      </div>
+    </div>
+    <h2 class="font-weight-bold" i18n>Awards</h2>
+    <div class="jumbotron border border-dark" style="background-color: white; display: flex; padding: 12px;">
+      <div *ngIf="detalleArtista?.albums?.length == 0">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+         <label i18n>The artist / band does not own awards.</label>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 artista-list__item" *ngFor="let premio of premios">
+        <div class="card">
+          <div class="card-header">
+            <strong> {{premio.name}}</strong>
+          </div>
+          <div class="card-body" style="text-align: inherit;">
+            <p class="card-text"><strong i18n>Organization:</strong> {{premio.organization}}</p>
+            <p></p>
+            <p class="card-text"><strong i18n>Description:</strong> {{premio.description}}</p>
+            <p class="card-text"><strong i18n>Date:</strong> {{premio.premiationDate | date: 'dd-mm-yyyy'}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

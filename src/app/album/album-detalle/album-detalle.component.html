@@ -1,0 +1,137 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a style="color: black;" routerLink="/albums/list" >Albums</a></li>
+  <li class="breadcrumb-item">{{detalleAlbum?.name}}</li>
+</ol>
+<div class="container-fluid">
+  <div class="card mb-3" style="padding: 22px;">
+    <div class="row no-gutters">
+      <div class="col2">
+        <img src={{detalleAlbum?.cover}} style="height:138px;max-width:138px;"
+          onError="this.src='assets/imagenes/sinFotoArtista.png'" class="card-img" alt="Imágen Álbum">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body" style="text-align: inherit;">
+          <h1 id="nombreAlbum">{{detalleAlbum?.name}}</h1>
+          <p class="card-text">{{detalleAlbum?.description}}</p>
+          <tr>
+            <td class="flagTitulo1" i18n>
+              Release Date:
+            </td>
+            <td>
+              <label class="card-text"> &nbsp; {{detalleAlbum?.releaseDate | date: 'dd-MM-yyyy'}}</label>
+            </td>
+          </tr>
+          <tr>
+            <td class="flagTitulo1" i18n>
+              Genre:
+            </td>
+            <td>
+              <label class="card-text"> &nbsp; {{detalleAlbum?.genre}}</label>
+            </td>
+          </tr>
+          <tr>
+            <td class="flagTitulo1" i18n>
+              Record Label:
+            </td>
+            <td>
+              <label class="card-text"> &nbsp; {{detalleAlbum?.recordLabel}}</label>
+            </td>
+          </tr>
+        </div>
+      </div>
+    </div>
+    <br>
+    <h2 class="font-weight-bold" i18n>Tracks</h2>
+    <div class="jumbotron border border-dark" style="background-color: white; padding: 12px;"
+      *ngIf="detalleAlbum != undefined">
+      <app-track-listar [idAlbum]="detalleAlbum.id"></app-track-listar>
+    </div>
+    <h2 class="font-weight-bold" id="titleArtista" i18n>Artists</h2>
+    <div class="jumbotron border border-dark" style="background-color: white; display: flex; padding: 12px;">
+      <div class="col-sm-12 col-md-6 artista-list__item" *ngFor="let artista of detalleAlbum?.performers">
+        <div class="card mb-4 shadow-sm pd-5" style="width: 140px" routerLink="/artistas/{{artista.id}}">
+          <div class="card-img-top">
+            <a>
+              <img width="138px" height="138px" class="card-img-top" [src]="artista.image" alt="Imagen Artista">
+            </a>
+          </div>
+          <figcaption class="card-body">
+            <h3>{{artista.name}}</h3>
+          </figcaption>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h4 class="font-weight-bold" i18n>Comment</h4>
+      <div class="col-sm-12 col-md-6 artista-list__item" style="position: absolute;margin: -3.3% 75%;">
+        <button type="button" class="btn btn-primary" (click)="abrirModalComentario()" i18n>Add Comment</button>
+      </div>
+      <div class="jumbotron border border-dark" style="background-color: white; display: flex; padding: 12px;">
+        <div class="col-sm-12 col-md-6 artista-list__item" *ngFor="let comentarios of detalleAlbum?.comments">
+          <div class="card mb-4 shadow-sm pd-5" style="width: 140px" *ngIf="comentarios?.description">
+            <figcaption class="card-body">
+              <h4>{{comentarios.description}}</h4>
+            </figcaption>
+          </div>
+          <p class="card-text" *ngIf="detalleAlbum?.comments.length == 0" i18n>This Album not contains comment</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--comentario Form Modal-->
+
+<div class="modal" id="comentarioModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel" i18n>Add comment</h4>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="comentarioForm" (ngSubmit)="createComentario(comentarioForm.value)">
+
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="description" i18n>
+              Description
+            </label>
+            <textarea id="description" maxlength="500" class="form-control" formControlName="description"
+            placeholder="Type here.." i18n-placeholder="From placeholder"></textarea>
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show" *ngIf="comentarioForm.get('description').hasError('required') &&
+          comentarioForm.get('description').touched">
+           <label i18n>Description required</label>
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show"
+            *ngIf="comentarioForm.get('description').hasError('maxlength') && comentarioForm.get('description').touched">
+            <label i18n> Description too large</label>
+          </div>
+
+
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="rating" i18n>
+              Rating
+            </label>
+            <input type="number" id="rating" class="form-control"  formControlName="rating"
+            placeholder="Type here.." i18n-placeholder="From placeholder">
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show" *ngIf="comentarioForm.get('rating').hasError('required') &&
+        comentarioForm.get('rating').touched">
+        <label i18n>Rating required</label>
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show"
+            *ngIf="comentarioForm.get('rating').hasError('maxlength') && comentarioForm.get('rating').touched">
+            <label i18n>  Rating too short</label>
+          </div>
+
+          <div class="row form-inline justify-content-center align-self-center">
+            <button type="submit" class="btn btn-primary" [disabled]="comentarioForm.invalid" i18n>Create</button>
+            <div class="divider"></div>
+            <button type="button" class="btn btn-danger" (click)="cancelComment()" i18n>Cancel</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

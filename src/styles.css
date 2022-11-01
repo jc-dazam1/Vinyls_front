@@ -1,0 +1,130 @@
+/* Add application styles & imports to this file! */
+
+.artista-cart {
+  position: fixed;
+  right: 1em;
+  top: 73px;
+  width: 350px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.artista-cart ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.artista-cart li {
+  display: flex;
+  flex-flow: row;
+  padding: 1em;
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.artista-cart img {
+  height: 50px;
+  width: auto;
+  margin-right: 1em;
+}
+
+.artista-list__item h4 {
+  font-size: 16px;
+}
+
+.artista-list__image {
+  padding: 1em;
+  height: 240px;
+}
+
+.artista-list__image img {
+  max-width: 100%;
+}
+
+.cart-count {
+  color: #fff;
+  position: relative;
+}
+.cart-count em {
+  height: 24px;
+  background-color: red;
+  font-style: normal;
+  padding: 0;
+  border-radius: 50px;
+  position: absolute;
+  top: -5px;
+  right: -14px;
+  width: 24px;
+  text-align: center;
+  line-height: 24px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.cart-total {
+  padding: 1em;
+  margin: 0;
+  display: flex;
+  flex-flow: row;
+  align-items: normal;
+  justify-content: space-between;
+}
+
+.card-title {
+  margin-left: 9%;
+}
+
+.fa {
+  padding: 8px;
+}
+
+.input-group-addon {
+  height: 77%;
+}
+
+.car-body {
+  text-align: center;
+}
+
+.breadcrumb .breadcrumb-item a {
+  color: #0c5eb6;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: #0c5eb6;
+}
+
+.breadcrumb-item + .breadcrumb-item.active::before {
+  color: #0c5eb6;
+  font-weight: bold;
+}
+
+.breadcrumb-item + .breadcrumb-item::after {
+  color: #0c5eb6;
+}
+
+.breadcrumb .breadcrumb-item.active {
+  color: #0c5eb6;
+  font-weight: bold;
+}
+
+.breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  color: #0c5eb6;
+}
+
+a {
+  color: #0c5eb6;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+caption {
+  color: #000000;
+  font-weight: bold;
+}
+
+.btn {
+  padding: 0 1.75rem;
+}

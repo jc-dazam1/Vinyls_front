@@ -1,0 +1,161 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a style="color: black" routerLink="/">Inicio</a>
+  </li>
+  <li class="breadcrumb-item" id="tituloAlbum" i18n>Album</li>
+</ol>
+<h1 i18n>List the Albums</h1>
+<div class="row album-list" style="margin: 1em 0">
+  <!-- START : album Card -->
+  <div class="input-group"> <div class="input-group-addon"><em class="fa fa-search" alt="busqueda"></em></div>
+  <input
+    maxlength="20"
+    class="form-control"
+    type="search"
+    name="search"
+    [(ngModel)]="filter.name"
+    autocomplete="off"
+    placeholder="Buscar Nombre del album"
+  />
+  </div>
+  <br />
+  <br />
+  <div *ngIf="albums?.length == 0">
+    <p i18n>Not register Album</p>
+  </div>
+  <div
+    class="col-sm-12 col-md-6 col-lg-2 album-list__item"
+    *ngFor="let album of albums | filtroBusqueda:filter:'name' "
+  >
+    <div (click)="irDetalleAlbum(album.id)" class="card mb-4 shadow-sm pd-5" style="width: 140px">
+      <div class="card-img-top">
+        <img
+          width="138px"
+          height="138px"
+          class="card-img-top"
+          [src]="album.cover | sinFotoAlbum"
+          alt="Imagen Album"
+        />
+      </div>
+      <figcaption class="card-body">
+        <h2 id="nameAlbum">{{ album.name }}</h2>
+      </figcaption>
+    </div>
+
+  </div>
+  <div class="col-sm-12 col-md-6 artista-list__item" style="position: absolute;margin: -3.3% 75%;">
+    <button type="button" class="btn btn-primary" (click)="newAlbumModal()" i18n>Add Album</button>
+  </div>
+</div>
+
+
+<!--Formulario Crear Album Modal-->
+
+<div class="modal" id="newAlbumModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel" i18n>Create Album</h4>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="createAlbumForm" (ngSubmit)="createAlbum(createAlbumForm.value)">
+
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="name" i18n>
+              Name
+            </label>
+            <input type="text" id="name" class="form-control" formControlName="name" placeholder="Type here.." i18n-placeholder="From placeholder">
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show" *ngIf="createAlbumForm.get('name').hasError('required') &&
+          createAlbumForm.get('name').touched" i18n>
+            Name required
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show"
+            *ngIf="createAlbumForm.get('name').hasError('maxlength') && createAlbumForm.get('name').touched" i18n>
+            Name too large
+          </div>
+
+
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="cover" i18n>
+              Cover
+            </label>
+            <input type="text" id="cover" class="form-control" formControlName="cover" placeholder="Type here.." i18n-placeholder="From placeholder">
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show" *ngIf="createAlbumForm.get('cover').hasError('required') &&
+        createAlbumForm.get('cover').touched" i18n>
+            Cover required
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show"
+            *ngIf="createAlbumForm.get('cover').hasError('maxlength') && createAlbumForm.get('cover').touched" i18n>
+            Cover too short
+          </div>
+
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="releaseDate" i18n>
+              Relase Date
+            </label>
+            <input  type="date" class="form-control" id="releaseDate" formControlName="releaseDate" placeholder="yyyy-mm-dd" >
+          </div>
+         <div class="alert alert-danger alert-dismissible fade show" *ngIf="createAlbumForm.get('releaseDate').hasError('required') &&
+            createAlbumForm.get('releaseDate').touched" i18n>
+            Relase Date required
+          </div>
+
+
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="description" i18n>
+              Description
+            </label>
+            <textarea id="description" maxlength="500" class="form-control" formControlName="description" placeholder="Type here.." i18n-placeholder="From placeholder"></textarea>
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="createAlbumForm.get('description').hasError('required') &&
+        createAlbumForm.get('description').touched" i18n>
+            Description required
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show"
+            *ngIf="createAlbumForm.get('description').hasError('maxlength') && createAlbumForm.get('description').touched" i18n>
+            Description too short
+          </div>
+
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="genre" i18n>
+              Genre
+          </label>
+          <input type="text" id="genre" class="form-control" formControlName="genre" placeholder="Type here.." i18n-placeholder="From placeholder">
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="createAlbumForm.get('genre').hasError('required') &&
+        createAlbumForm.get('genre').touched" i18n>
+            Genre required
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show"
+            *ngIf="createAlbumForm.get('genre').hasError('maxlength') && createAlbumForm.get('genre').touched" i18n>
+            Genre too short
+          </div>
+
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="recordLabel" i18n>
+              Record Label
+          </label>
+          <input type="text" id="recordLabel" class="form-control" formControlName="recordLabel" placeholder="Type here.." i18n-placeholder="From placeholder">
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="createAlbumForm.get('recordLabel').hasError('required') &&
+        createAlbumForm.get('recordLabel').touched" i18n>
+            Record Label required
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show"
+            *ngIf="createAlbumForm.get('recordLabel').hasError('maxlength') && createAlbumForm.get('recordLabel').touched" i18n>
+            Record Label too short
+          </div>
+
+          <div class="row form-inline justify-content-center align-self-center">
+            <button type="button" class="btn btn-danger" (click)="cancelCreateAlbum()" i18n>Cancel</button>
+              <div class="divider"></div>
+              <button type="submit" class="btn btn-primary" [disabled]="createAlbumForm.invalid" i18n>Create</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

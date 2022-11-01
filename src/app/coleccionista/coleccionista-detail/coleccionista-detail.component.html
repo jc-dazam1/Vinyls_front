@@ -1,0 +1,151 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/coleccionistas/list" i18n>Collectors</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{detalleColeccionista?.name}}</li>
+  </ol>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h1 i18n>Personal Information</h1>
+        </div>
+        <div class="card-body text-left">
+          <p class="card-text"><strong i18n>Name:</strong> {{detalleColeccionista?.name}}</p>
+          <p class="card-text"><strong i18n>Telephone:</strong>&nbsp;{{detalleColeccionista.telephone}}</p>
+          <p class="card-text"><strong i18n>Email:</strong>&nbsp;{{detalleColeccionista.email}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+            aria-selected="true" i18n>Available Albums</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+            aria-selected="false" i18n>Favorite Performers</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+            aria-selected="false" i18n>Comments</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="row">
+            <div class="col-12">
+              <button type="button" class="btn btn-primary pull-right" (click)="addAlbum()" i18n>Add Album</button>
+            </div>
+          </div>
+          <div class="row flex-row flex-nowrap">
+            <div *ngIf="albumesColeccionista?.length == 0">
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <span i18n>The collector hasn't added albums yet.</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-2 album-list__item"
+              *ngFor="let collectorAlbum of albumesColeccionista">
+              <div class="card mb-4 shadow-sm pd-5" style="width: 140px"
+                routerLink="/albums/{{collectorAlbum.album.id}}">
+                <div class="card-img-top">
+                  <img width="138px" height="138px" class="card-img-top" [src]="collectorAlbum.album.cover"
+                    alt="Album Image" />
+                </div>
+                <figcaption class="card-body">
+                  <h2>{{ collectorAlbum.album.name }}</h2>
+                </figcaption>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div *ngIf="detalleColeccionista?.favoritePerformers?.length == 0">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <span i18n>The collector hasn't added favorite performers yet.</span>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-2 artista-list__item" style="position: absolute;margin: 0.7% 79%">
+            <button type="button" class="btn btn-primary" (click)="abrirModalArtistas()" i18n>Add Performers</button>
+          </div>
+          <br>
+          <div class="col-sm-12 col-md-6 col-lg-2 artista-list__item"
+            *ngFor="let artista of detalleColeccionista.favoritePerformers">
+            <div class="card mb-4 shadow-sm pd-5" style="width: 140px">
+              <div class="card-img-top">
+                <a>
+                  <img width="138px" height="138px" class="card-img-top" [src]="artista.image" alt="Artist Image">
+                </a>
+              </div>
+              <figcaption class="card-body">
+                <h2>{{artista.name}}</h2>
+              </figcaption>
+            </div>
+          </div>
+          <br>
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <div *ngIf="detalleColeccionista?.comments?.length == 0">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <span i18n>The collector hasn't added any comment for an album.</span>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+          <div *ngIf="detalleColeccionista?.comments?.length > 0" class="col-sm-12 col-md-6">
+            <table class="table table-striped">
+              <caption i18n>Collector comments</caption>
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col" i18n>Album</th>
+                  <th scope="col" i18n>Comment</th>
+                  <th scope="col" i18n>Rating</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let comentario of detalleColeccionista.comments; index as i">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{comentario.album.name}}</td>
+                  <td>{{comentario.description}}</td>
+                  <td>{{comentario.rating}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--artistas Form Modal-->
+
+<div class="modal" id="artistasModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width: 70%;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel" i18n>Add favorite performer</h4>
+      </div>
+      <div class="modal-body">
+        <app-artista-listar [verbreadcrumb]="verbreadcrumbColeccionista" [verbtnAnnadir]="verbuttonAnnadir"
+          (idArtista)="annadirArtista($event)"></app-artista-listar>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal" i18n>Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
