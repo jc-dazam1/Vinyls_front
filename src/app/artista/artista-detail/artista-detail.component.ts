@@ -35,6 +35,15 @@ export class ArtistaDetailComponent implements OnInit, OnDestroy {
 
   }
 
+  getDetailArtista2(): void {
+    this.artistaService.getDetailArtista(this.idArtista)
+      .subscribe(artistaDetail => {
+        this.detalleArtista = artistaDetail;
+        this.getPremioArtista();
+      });
+
+  }
+
   getPremioArtista(): void {
       this.detalleArtista.performerPrizes.forEach(premio => {
         this.artistaService.getPremioArtista(premio.id)
